@@ -1,8 +1,22 @@
-# React + Vite
+# What's the WiFi?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React web app for generating QR codes for WiFi networks. 
 
-Currently, two official plugins are available:
+<div align="center" >
+  <img src="whats-the-wifi-sq.gif" width=50%/>
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can check it out here: https://whats-the-wifi.replit.app
+
+## Usage
+
+To start the dev server, click "Run" or execute `npm run dev` in the Shell. You'll see a Webview pane with the app.
+
+Enter an SSID, password, and encryption method to generate a QR Code and download it.
+
+## How does it work?
+
+This is a React app written in JavaScript. It uses the [shadcn/ui](ui.shadcn.com), which is a component library built on Tailwind CSS. 
+
+`App.jsx` holds the logic for the application, including state management variables and event handlers. 
+
