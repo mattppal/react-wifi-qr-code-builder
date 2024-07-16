@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { PasswordInput } from './components/ui/passwordInput';
 import { Button } from './components/ui/button';
-import { jsPDF } from "jspdf";
 
 const WifiQRCodeGenerator = () => {
   const [ssid, setSsid] = useState('');
@@ -33,23 +32,6 @@ const WifiQRCodeGenerator = () => {
       }
     }
   }, []);
-
-  const createPDF = () => {
-    const doc = new jsPDF();
-
-    // Add some text
-    doc.text("This is a wifi network", 20, 20);
-
-    // Add user input to PDF
-    doc.setFontSize(16);
-    doc.text(`SSID: ${ssid}`, 20, 40);
-    doc.text(`password: ${password}`, 20, 50);
-
-
-    doc.addSvgAsImage(svgXml, 20, 60, 50, 50)
-
-    setTimeout(doc.save, 1000, `${ssid}.pdf`);
-  };
 
   const downloadAsPNG = () => {
     const svg = qrRef.current.querySelector('svg');
@@ -131,9 +113,6 @@ const WifiQRCodeGenerator = () => {
             {
               showQR && (
                 <div className="flex justify-center mt-4 space-x-4">
-                  <Button onClick={createPDF} className="w-full">
-                    Download PDF
-                  </Button>
                   <Button onClick={downloadAsPNG} className="w-full">
                     Download QR
                   </Button>
