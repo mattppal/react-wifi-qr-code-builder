@@ -114,7 +114,7 @@ const WifiQRCodeGenerator = () => {
               showQR && (
                 <div className="flex justify-center mt-4 space-x-4">
                   <Button onClick={downloadAsPNG} className="w-full">
-                    Download QR
+                    Download QR Code
                   </Button>
                 </div>)
             }
