@@ -27,28 +27,15 @@ const WifiQRCodeGenerator = () => {
   };
 
   const qrRef = useRef(null);
-  const [setSvgXml] = useState("");
-
-  useEffect(() => {
-    if (qrRef.current) {
-      const serializer = new XMLSerializer();
-      const svgElement = qrRef.current.querySelector("svg");
-      if (svgElement) {
-        const xmlString = serializer.serializeToString(svgElement);
-        setSvgXml(xmlString);
-      }
-    }
-  }, []);
 
   const downloadAsPNG = () => {
     const svg = qrRef.current.querySelector("svg");
-    if (!svg) return;
     const resizeSVG = svg.cloneNode(true);
+
     resizeSVG.setAttribute("width", "1000");
     resizeSVG.setAttribute("height", "1000");
 
     const svgData = new XMLSerializer().serializeToString(resizeSVG);
-
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -71,7 +58,7 @@ const WifiQRCodeGenerator = () => {
   };
 
   return (
-    <div className="h-screen flex items-center" >
+    <div className="h-screen flex items-center">
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
           <CardTitle>🛜 What's the Wi-Fi?</CardTitle>
