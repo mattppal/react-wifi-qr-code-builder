@@ -3,7 +3,7 @@
 This is a React web app for generating QR codes for WiFi networks. 
 
 <div align="center" >
-  <img src="whats-the-wifi-sq.gif" width=50%/>
+  <img src="public/whats-the-wifi-sq.gif" width=50%/>
 </div>
 
 You can check it out here: https://whats-the-wifi.replit.app
