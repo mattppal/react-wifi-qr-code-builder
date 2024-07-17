@@ -15,15 +15,16 @@ import { Button } from "@/components/ui/button";
 
 const WifiQRCodeGenerator = () => {
   const [ssid, setSsid] = useState("");
+  const [password, setPassword] = useState("");
+  const [authType, setAuthType] = useState("WPA");
+
+  const wifiString = `WIFI:T:${authType};S:${ssid};P:${password};;`;
+
   const [showQR, setShowQR] = useState(false);
 
   const generateQRCode = () => {
     setShowQR(true);
   };
-  const [password, setPassword] = useState("");
-  const [authType, setAuthType] = useState("WPA");
-
-  const wifiString = `WIFI:T:${authType};S:${ssid};P:${password};;`;
 
   const qrRef = useRef(null);
   const [setSvgXml] = useState("");
@@ -70,13 +71,13 @@ const WifiQRCodeGenerator = () => {
   };
 
   return (
-    <div className="h-screen flex items-center">
+    <div className="h-screen flex items-center" >
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
           <CardTitle>🛜 What's the Wi-Fi?</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2" onChange={generateQRCode}>
+        <CardContent className="space-y-4" onChange={generateQRCode}>
+          <div className="space-y-2">
             <Label htmlFor="ssid">Wi-Fi Name (SSID)</Label>
             <Input
               id="ssid"
